@@ -1,6 +1,6 @@
 <!-- partial:index.partial.html -->
 <section class="">
-    <form action="/login" method="post">
+    <form action="/loginaction" method="post">
         <div class="screen-1">
             <h1 class="logo">MUSIC<br>PLAYER</h1>
             <div class="email">
@@ -16,11 +16,15 @@
                     <ion-icon name="lock-closed-outline"></ion-icon>
                     <input class="pas" type="password" name="password" placeholder="············" />
                     <ion-icon class="show-hide" name="eye-outline"></ion-icon>
+                    {{#if userloginErr}}
+                    <p class="err">Invalid Email or Password</p>
+                    {{/if}}
                 </div>
             </div>
             <button class="login">Login </button>
             <div class="footer">
-                <a href="/signup">Signup</a><span>Forgot Password?</span>
+                <a href="/signup">Signup</a>
+                <span>Forgot Password?</span>
             </div>
         </div>
     </form>
