@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var userHelper = require('../helper/user-helper')
-const async = require('hbs/lib/async')
+const async = require('hbs/lib/async');
+const { response } = require('../app');
 
 
 /* GET home page. */
@@ -13,14 +14,19 @@ var varifyLogin = (req, res, next) => {
   }
 }
 router.get('/', function (req, res, next) {
-  res.render('userview/login');
+  let user = req.session.userloggedIn
+  if (user) {
+    res.render('userview/main-view')
+  } else {
+    res.render('userview/login');
+  }
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.user) {
-    res.render('userview/main-view')
+  if (req.session.userloggedIn) {
+    res.render('/')
   } else {
-    res.render('user/login', { loginErr: req.session.userloginErr })
+    res.render('userview/login', { loginErr: req.session.userloginErr })
     req.session.userloginErr = false;
   }
 })
@@ -30,6 +36,39 @@ router.get('/signup', (req, res) => {
 })
 
 router.post('/loginaction', (req, res) => {
-  console.log(req.body)
+  userHelper.doLogin(req.body).then((response) => {
+    if (response.status) {
+      req.session.userloggedIn = true;
+      console.log(response.user)
+      req.session.user = response.user
+      res.redirect('/')
+    } else {
+      req.session.userloginErr = true
+      res.redirect('/login')
+    }
+  })
+})
+
+router.post('/signupaction', (req, res) => {
+  userHelper.doSignup(req.body).then((response) => {
+    req.session.userloggedIn = true
+    req.session.user = response
+    res.redirect('/')
+  })
+})
+
+router.get('/forgotpass', (req, res) => {
+  res.render('userview/forgotpass');
+})
+
+router.post('/forgotaction', (req, res) => {
+  userHelper.doForgotpass(req.body).then((response) => {
+    if (response.status) {
+      console.log("PASSWORD CHANGED")
+      res.redirect('/')
+    } else {
+      res.render('userview/forgotpass', { DiffPass: true })
+    }
+  })
 })
 module.exports = router;
