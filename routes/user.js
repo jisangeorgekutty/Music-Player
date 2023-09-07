@@ -16,7 +16,7 @@ var varifyLogin = (req, res, next) => {
 router.get('/', function (req, res, next) {
   let user = req.session.userloggedIn
   if (user) {
-    res.render('userview/main-view')
+    res.render('playview/main-view')
   } else {
     res.render('userview/login');
   }
@@ -70,5 +70,9 @@ router.post('/forgotaction', (req, res) => {
       res.render('userview/forgotpass', { DiffPass: true })
     }
   })
+})
+
+router.get('/test', (req, res) => {
+  res.render('playview/main-view')
 })
 module.exports = router;

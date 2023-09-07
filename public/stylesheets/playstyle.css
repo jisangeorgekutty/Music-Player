@@ -1,0 +1,147 @@
+* {
+    font-family: "Poppins";
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    width: 100%;
+    height: 100hv;
+    font-family: 'Poppins', sans-serif;
+    background: #121213;
+    place-items: center;
+
+}
+
+header {
+    width: 85%;
+    height: 95%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header .menu-box {
+    width: 25%;
+    height: 90%;
+    background: #111727;
+    box-shadow: 5px 0px 2px #090f1f;
+    float: left;
+}
+
+header .song-box {
+    width: 75%;
+    height: 90%;
+    background: #0b1320;
+    float: right;
+    box-shadow: 7px 0px 2px #090f1f;
+
+}
+
+header .play-box {
+    width: 100%;
+    height: 10%;
+    background-color: #111727;
+    box-shadow: 10px 3px 8px #090f1f;
+    float: right;
+}
+
+header .menu-box h1 {
+    color: #fff;
+    margin: 1em 0 0 .8em;
+}
+
+header .menu-box .playlist {
+    margin: 1.5em 0 0 2.9em;
+
+}
+
+header .menu-box .playlist h4 {
+    padding-top: 1em;
+    color: #4c5262;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+header .menu-box .playlist ion-icon {
+    font-size: 16px;
+
+}
+
+header .menu-box .playlist span {
+    margin: 0 0 0 .5em;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+header .menu-box .playlist h4:hover {
+    color: #ffff;
+}
+
+header .menu-box h3 {
+    color: #fff;
+    margin: 35px 0 0 25px;
+    font-size: 18px;
+}
+
+header .menu-box .menu-song {
+    width: 100%;
+    height: 323px;
+    /* border: 1px solid #fff; */
+    margin-top: .5em;
+    overflow: auto;
+}
+
+header .menu-box .menu-song::-webkit-scrollbar {
+    display: none;
+}
+
+header .menu-box .menu-song li {
+    list-style-type: none;
+    position: relative;
+    padding: 15px 0px 5px 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: .5em;
+    cursor: pointer;
+    transition: .3s linear;
+    color: #fff;
+
+}
+
+header .menu-box .menu-song li:hover {
+    background: rgb(105, 105, 105, .1);
+}
+
+header .menu-box .menu-song li .subtitle {
+    font-size: 9px;
+    font-weight: 600;
+    color: #4c5262;
+    margin-top: .5em;
+}
+
+header .menu-box .menu-song li img {
+    width: 35px;
+    height: 35px;
+    margin-left: 25px;
+    border-radius: 2px;
+}
+
+header .menu-box .menu-song li h5 {
+    font-size: 13px;
+    margin-left: 24px;
+    width: 170px;
+    font-weight: 730;
+    /* border: 1px solid #fff; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+header .menu-box .menu-song li ion-icon {
+    font-size: 20px;
+    margin-right: 0%;
+}
