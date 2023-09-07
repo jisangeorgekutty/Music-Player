@@ -30,8 +30,9 @@ body {
   align-items: center;
   text-align: center;
   font-size: 3rem;
+  font-weight: 590;
   justify-content: center;
-  text-shadow: 0 0 2px #e6e9f9;
+  text-shadow: 0 0 7px #e6e9f9;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -156,6 +157,13 @@ body {
   border: none;
   border-radius: 30px;
   font-weight: 600;
+  overflow: auto;
+  cursor: pointer;
+  transition: .3s linear;
+}
+
+.screen-1 .login:hover {
+  box-shadow: 0 0 1em #e6e9f9;
 }
 
 .screen-1 .footer {
