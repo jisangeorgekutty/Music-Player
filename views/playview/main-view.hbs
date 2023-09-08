@@ -67,7 +67,36 @@
             </div>
         </div>
         <div class="song-box"></div>
-        <div class="play-box"></div>
+        <div class="play-box">
+            <div class="wave">
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+                <div class="wave1"></div>
+            </div>
+            <img src="/images/2.jpg" class="play-image" alt="" id="play-img">
+            <h5 id="play-title">Alone <div class="subtitle">Alan Walker</div>
+            </h5>
+            <div class="play-icons">
+                <ion-icon name="musical-notes"></ion-icon>
+                <ion-icon name="play-skip-back"></ion-icon>
+                <ion-icon name="pause"></ion-icon>
+                <ion-icon name="play-skip-forward"></ion-icon>
+                <ion-icon name="heart-outline"></ion-icon>
+            </div>
+            <span id="currentStart">0:00</span>
+            <div class="play-bar">
+                <input type="range" id="seek" min="0" max="100">
+                <div class="play-bar2" id="play-bar2"></div>
+                <div class="dot"></div>
+            </div>
+            <span id="currentEnd">3:00</span>
+            <ion-icon name="volume-low-sharp" id="vol_icon"></ion-icon>
+            <div class="vol">
+                <input type="range" min="0" max="100" id="vol">
+                <div class="vol-bar"></div>
+                <div class="dot" id="vol-dot"></div>
+            </div>
+        </div>
     </header>
 </body>
 <script src="https://kit.fontawesome.com/6b3f1ac7c4.js" crossorigin="anonymous"></script>
