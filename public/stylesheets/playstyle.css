@@ -65,7 +65,7 @@ header .menu-box .playlist h4 {
     transition: .3s linear;
 }
 
-header .menu-box .playlist ion-icon {
+header .menu-box .playlist i {
     font-size: 16px;
 }
 
@@ -183,10 +183,8 @@ header .play-box .wave .wave1:nth-child(3) {
     animation-delay: .8s;
 }
 
-/* Javascript classses */
-
 header .play-box .active1 .wave1 {
-    animation: .5s linear infinite;
+    animation: wave .5s linear infinite;
 }
 
 header .play-box .active1 .wave1:nth-child(2) {
@@ -239,26 +237,24 @@ header .play-box h5 .subtitle {
 }
 
 header .play-box .play-icons {
+    position: relative;
     width: 200px;
-    height: 30px;
+    height: 33px;
     /* border: 1px solid #fff; */
     padding-bottom: 5px;
     display: flex;
     align-items: flex-end;
+    align-items: center;
     margin: 0 0 0 2em;
 }
 
-header .play-box .play-icons ion-icon {
+header .play-box .play-icons i {
     color: #fff;
-    font-size: 20px;
-    padding-left: .6em;
+    font-size: 23px;
+    padding-left: .7em;
     cursor: pointer;
-    transition: .3s linear;
 }
 
-header .play-box .play-icons ion-icon:hover {
-    color: #4c5262;
-}
 
 header .play-box span {
     color: #fff;
@@ -295,7 +291,7 @@ header .play-box .play-bar {
 
 header .play-box .play-bar .play-bar2 {
     position: absolute;
-    width: 50%;
+    width: 0;
     height: 100%;
     background: #36e2ec;
     top: 0;
@@ -336,70 +332,6 @@ header .play-box .play-bar input {
     opacity: 0;
 }
 
-header .play-box .vol {
-    position: relative;
-    width: 100px;
-    height: 2px;
-    background: rgb(105, 105, 170, .1);
-    margin-left: 7px;
-}
-
-
-
-header .play-box .vol .bi {
-    position: absolute;
-    color: #fff;
-    font-size: 25px;
-    top: -17px;
-    left: -30px
-}
-
-header .play-box .vol input {
-    position: absolute;
-    width: 100%;
-    top: -7px;
-    left: 0;
-    cursor: pointer;
-    z-index: 99999999999999999999999999999999999999999;
-    opacity: 0;
-
-}
-
-header .play-box .vol .vol-bar {
-    position: absolute;
-    background: #36e2ec;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    transition: 1s linear;
-
-}
-
-
-
-header .play-box .vol .dot {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #36e2ec;
-    top: -1.5px;
-    border-radius: 50%;
-    left: 100%;
-    transition: 1s linear;
-}
-
-header .play-box .vol .dot::before {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    left: -7px;
-    top: -6.5px;
-    box-shadow: inset 0px 0px 3px #36e2ec;
-}
-
 header .song-box {
     z-index: 3;
 }
@@ -409,7 +341,6 @@ header .song-box .nav-box {
     height: 50px;
     /* border: 1px solid #fff; */
     margin-top: 1em;
-    overflow: auto;
     margin-left: 2em;
     position: relative;
 }
@@ -508,11 +439,12 @@ header .song-box .nav-box nav img {
 header .song-box .song-section {
     position: relative;
     overflow: auto;
+    scroll-behavior: smooth;
     height: 85%;
     width: 100%;
     overflow-x: hidden;
     /* border: 1px solid #fff; */
-    margin: 1.5em 0 0 0;
+    margin: 1em 0 0 0;
 }
 
 header .song-box .song-section::-webkit-scrollbar {
@@ -535,7 +467,21 @@ header .song-box .song-section .fresh-music-section {
     /* border: 1px solid #fff; */
     display: flex;
     overflow: auto;
-    margin-left: 1.5em;
+    /* margin-left: 1.5em; */
+    scroll-behavior: smooth;
+}
+
+header .song-box .song-section .fresh-music-section .row .card .bi {
+    font-size: 17px;
+    cursor: pointer;
+    transition: .3s linear;
+    opacity: 0;
+    color: #fff;
+
+}
+
+header .song-box .song-section .fresh-music-section .row .card:hover .bi {
+    opacity: 1;
 }
 
 header .song-box .song-section .fresh-music-section::-webkit-scrollbar {
@@ -566,7 +512,8 @@ header .song-box .song-section .fresh-music-section .row .card img {
     width: 140px;
     /* border: 1px solid #fff; */
     align-items: center;
-    margin: 1em 0 0 0;
+    margin: .5em 0 0 0;
+    border-radius: 2px;
 }
 
 header .song-box .song-section .fresh-music-section .row .card h5 {
@@ -594,7 +541,22 @@ header .song-box .song-section .chill-music-section {
     /* border: 1px solid #fff; */
     display: flex;
     overflow: auto;
-    margin-left: 1.5em;
+    /* margin-left: 1.5em; */
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+}
+
+header .song-box .song-section .chill-music-section .row .card .bi {
+    font-size: 17px;
+    cursor: pointer;
+    transition: .3s linear;
+    opacity: 0;
+    color: #fff;
+
+}
+
+header .song-box .song-section .chill-music-section .row .card:hover .bi {
+    opacity: 1;
 }
 
 header .song-box .song-section .chill-music-section .row:hover {
@@ -625,7 +587,8 @@ header .song-box .song-section .chill-music-section .row .card img {
     width: 140px;
     /* border: 1px solid #fff; */
     align-items: center;
-    margin: 1em 0 0 0;
+    margin: .5em 0 0 0;
+    border-radius: 2px;
 }
 
 header .song-box .song-section .chill-music-section .row .card h5 {
@@ -653,7 +616,21 @@ header .song-box .song-section .bighits-music-section {
     /* border: 1px solid #fff; */
     display: flex;
     overflow: auto;
-    margin-left: 1.5em;
+    /* margin-left: 1.5em; */
+    scroll-behavior: smooth;
+}
+
+header .song-box .song-section .bighits-music-section .row .card .bi {
+    font-size: 17px;
+    cursor: pointer;
+    transition: .3s linear;
+    opacity: 0;
+    color: #fff;
+
+}
+
+header .song-box .song-section .bighits-music-section .row .card:hover .bi {
+    opacity: 1;
 }
 
 header .song-box .song-section .bighits-music-section::-webkit-scrollbar {
@@ -684,7 +661,8 @@ header .song-box .song-section .bighits-music-section .row .card img {
     width: 140px;
     /* border: 1px solid #fff; */
     align-items: center;
-    margin: 1em 0 0 0;
+    margin: .5em 0 0 0;
+    border-radius: 2px;
 }
 
 header .song-box .song-section .bighits-music-section .row .card h5 {
@@ -712,7 +690,8 @@ header .song-box .song-section .popular-artists-section {
     /* border: 1px solid #fff; */
     display: flex;
     overflow: auto;
-    margin-left: 1.5em;
+    /* margin-left: 1.5em; */
+    scroll-behavior: smooth;
 }
 
 
