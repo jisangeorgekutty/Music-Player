@@ -194,14 +194,51 @@ next.addEventListener('click', () => {
     wave.classList.add('active1');
 })
 
-let heart = document.getElementById('heart');
+music.addEventListener('ended', () => {
+    if (index == songs.length) {
+        index = 1;
+    } else {
+        index++;
+    }
+    music.src = `/audio/${index}.mp3`;
+    playImage.src = `/images/${index}.jpg`;
+    music.play();
+    masterPlay.classList.remove('bi-play-fill');
+    masterPlay.classList.add('bi-pause-fill');
+    let songTitle = songs.filter((els) => {
+        return els.id == index;
+    });
+    songTitle.forEach(elss => {
+        let { songName } = elss;
+        title.innerHTML = songName;
+    })
 
-// heart.addEventListener('click', () => {
-//     if (music.currentTime <= 0) {
-//         heart.classList.remove('bi-suit-heart-fill')
-//         heart.classList.add('bi-suit-heart')
-//     } else {
-//         heart.classList.add('bi-suit-heart-fill')
-//         heart.classList.remove('bi-suit-heart')
-//     }
-// })
+    makePlays();
+    el.target.classList.add('bi-pause-circle-fill');
+    el.target.classList.remove('bi-play-circle-fill');
+    wave.classList.add('active1');
+})
+
+let repeat = document.getElementById('repeat');
+
+repeat.addEventListener('click', () => {
+    index;
+    music.src = `/audio/${index}.mp3`;
+    playImage.src = `/images/${index}.jpg`;
+    music.play();
+    masterPlay.classList.remove('bi-play-fill');
+    masterPlay.classList.add('bi-pause-fill');
+
+    let songTitle = songs.filter((els) => {
+        return els.id == index;
+    });
+    songTitle.forEach(elss => {
+        let { songName } = elss;
+        title.innerHTML = songName;
+    })
+
+    makePlays();
+    el.target.classList.add('bi-pause-circle-fill');
+    el.target.classList.remove('bi-play-circle-fill');
+    wave.classList.add('active1');
+})
