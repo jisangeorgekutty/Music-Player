@@ -442,6 +442,7 @@ header .song-box .nav-box nav .search .search-results .card {
     margin-bottom: 5px;
     text-decoration: none;
     border-radius: 5px;
+    display: none;
     z-index: 2;
 }
 
