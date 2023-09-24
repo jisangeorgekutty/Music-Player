@@ -6,6 +6,7 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel='stylesheet'
         href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap'>
@@ -27,7 +28,7 @@
                     <img src="/images/1.jpg" alt="">
                     <h5>On my way <div class="subtitle">Alan Walker</div>
                     </h5>
-                    <i class="bi playListPlay bi-play-circle-fill" id="1"></i>
+                    <i onclick="playClick()" class="bi playListPlay bi-play-circle-fill" id="1"> </i>
                 </li>
                 <li class="songItems">
                     <img src="/images/2.jpg" alt="">
@@ -78,26 +79,25 @@
                         <li class="nav-item">
                             My Library</a>
                         </li>
-                        <li class="nav-item">
-                            Radio
-                        </li>
                     </ul>
+
+                    {{!-- Searchingggg --}}
+
                     <div class="search">
                         <ion-icon class="bi" name="search"></ion-icon>
                         <input type="text" placeholder="Search Music">
                         <div class="search-results">
-                            {{!-- <a href="" class="card">
-                                <div class="img"><img src="/images/2.jpg" alt=""></div>
+                            {{!-- <a href="" class="playListPlay">
+                                <img src="img/1.jpg" alt="">
                                 <div class="content">
-                                    Alone
-                                    <div class="subtitle">Alan Walker
-                                    </div>
+                                    On My Way
+                                    <div class="subtitle">Alan Walker</div>
                                 </div>
                             </a> --}}
                         </div>
                     </div>
                     <div class="user">
-                        <img src="/images/user.jpg" alt="">
+                        <a href="/logout"><img src="/images/user.gif" alt=""></a>
                     </div>
                 </nav>
             </div>
@@ -347,9 +347,10 @@
         </div>
 
         <div class="play-box">
-            <img src="" class="play-image" alt="" id="play-img">
+            <img src="/images/1.jpg" class="play-image" alt="" id="play-img">
             <h5 id="play-title">
-                <div class="subtitle"></div>
+                Blinding Ligths
+                <div class="subtitle">The Weekend</div>
             </h5>
             <div class="play-icons">
                 <i class="bi-repeat" id="repeat"></i>
@@ -370,6 +371,7 @@
                 <div class="wave1"></div>
                 <div class="wave1"></div>
             </div>
+
         </div>
     </header>
     <script src="/javascripts/script.js"></script>

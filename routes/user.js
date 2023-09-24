@@ -7,7 +7,7 @@ const { response } = require('../app');
 
 /* GET home page. */
 var varifyLogin = (req, res, next) => {
-  if (req.session.user) {
+  if (req.session.userloggedIn) {
     next()
   } else {
     res.redirect('/login')
@@ -15,8 +15,9 @@ var varifyLogin = (req, res, next) => {
 }
 router.get('/', function (req, res, next) {
   let user = req.session.userloggedIn
+  console.log(user)
   if (user) {
-    res.render('playview/main-view')
+    res.render('playview/main-view', { playclick: false })
   } else {
     res.render('userview/login');
   }
@@ -73,6 +74,23 @@ router.post('/forgotaction', (req, res) => {
 })
 
 router.get('/test', (req, res) => {
+  let user = req.session.user;
   res.render('playview/main-view')
 })
+
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/')
+})
+
+// router.get('/play-song', (req, res) => {
+//   console.log("playsong succes1")
+//   res.json({ codStatus: true });
+// })
+
+// router.get('/play-click', (req, res) => {
+//   console.log("playsong succes2")
+//   res.render('playview/main-view', { playclick: true })
+// })
+
 module.exports = router;

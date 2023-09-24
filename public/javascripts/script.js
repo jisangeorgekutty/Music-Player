@@ -38,6 +38,61 @@ const songs = [{
     // }
 ]
 
+let search_results = document.getElementsByClassName('search-results')[0];
+
+songs.forEach(element => {
+    const { id, songName, image } = element;
+    console.log(id)
+    let card = document.createElement('a');
+    card.classList.add('card');
+    card.href = "#" + id;
+
+    card.innerHTML = `<div class="img"><img src="${image}" alt=""></div>
+    <div class="content">
+        ${songName}
+    </div>
+    `;
+    search_results.appendChild(card)
+});
+
+let input = document.getElementsByTagName('input')[0];
+
+input.addEventListener('keyup', () => {
+    let input_value = input.value.toUpperCase();
+    let items = search_results.getElementsByTagName('a');
+    for (let index = 0; index < items.length; index++) {
+        let whole_text = items[index].getElementsByClassName('content')[0];
+        let text_value = whole_text.textContent || whole_text.innerHTML;
+
+        if (text_value.toUpperCase().indexOf(input_value) > -1) {
+            items[index].style.display = 'flex';
+        } else {
+            items[index].style.display = "none";
+        }
+
+        if (input.value == 0) {
+            search_results.style.display = "none";
+        } else {
+            search_results.style.display = "";
+        }
+
+    }
+});
+
+
+
+// function playClick() {
+//     $.ajax({
+//         url: '/play-song',
+//         method: 'get',
+//         success: (response) => {
+//             if (response.codStatus) {
+//                 location.href = '/play-click';
+
+//             }
+//         }
+//     })
+// }
 
 Array.from(document.getElementsByClassName('songItem')).forEach((e, i) => {
     e.getElementsByTagName('img')[0].src = songs[i].image;
@@ -243,43 +298,4 @@ repeat.addEventListener('click', () => {
     wave.classList.add('active1');
 })
 
-let search_results = document.getElementsByClassName('search-results')[0];
 
-songs.forEach(element => {
-    const { id, songName, image } = element;
-    console.log(id)
-    let card = document.createElement('a');
-    card.classList.add('card');
-    card.href = "#" + id;
-
-    card.innerHTML = `<div class="img"><img src="${image}" alt=""></div>
-    <div class="content">
-        ${songName}
-    </div>
-    `;
-    search_results.appendChild(card)
-});
-
-let input = document.getElementsByTagName('input')[0];
-
-input.addEventListener('keyup', () => {
-    let input_value = input.value.toUpperCase();
-    let items = search_results.getElementsByTagName('a');
-    for (let index = 0; index < items.length; index++) {
-        let whole_text = items[index].getElementsByClassName('content')[0];
-        let text_value = whole_text.textContent || whole_text.innerHTML;
-
-        if (text_value.toUpperCase().indexOf(input_value) > -1) {
-            items[index].style.display = 'flex';
-        } else {
-            items[index].style.display = "none";
-        }
-
-        if (input.value == 0) {
-            search_results.style.display = "none";
-        } else {
-            search_results.style.display = "";
-        }
-
-    }
-});

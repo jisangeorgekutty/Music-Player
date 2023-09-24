@@ -333,16 +333,17 @@ header .play-box .play-bar input {
     opacity: 0;
 }
 
-header .song-box {}
+/* header .song-box {} */
 
 header .song-box .nav-box {
-    width: 100%;
-    height: 50px;
+    width: 90%;
+    height: 10%;
     /* border: 1px solid #fff; */
-    margin-top: 1em;
-    margin-left: 2em;
-    position: relative;
     z-index: 3;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 header .song-box .nav-box nav {
@@ -352,18 +353,19 @@ header .song-box .nav-box nav {
 }
 
 header .song-box .nav-box .navbar ul {
-    padding-bottom: 5px;
+    /* padding-bottom: 5px; */
     display: flex;
-    align-items: flex-end;
+    /* align-items: flex-end;
     margin-top: .5em;
-    margin-right: 10px;
+    margin-right: 10px; */
     list-style-type: none;
 }
 
 
 header .song-box .nav-box .navbar li {
     color: #4c5262;
-    padding-left: 3em;
+    padding-left: 35px;
+    position: relative;
     font-size: 12px;
     font-weight: 400;
     cursor: pointer;
@@ -478,7 +480,7 @@ header .song-box .nav-box nav .search input {
     color: #fff;
 }
 
-header .song-box .nav-box nav img {
+header .song-box .nav-box nav a img {
     position: relative;
     left: -55px;
     height: 25px;
