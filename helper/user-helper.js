@@ -47,5 +47,13 @@ module.exports = {
                 resolve(response)
             }
         })
+    },
+    likedResponse:(likedDetails)=>{
+        return new Promise((resolve,reject)=>{
+            db.get().collection(collections.LIKED_COLLECTION).insertOne(likedDetails).then((status)=>{
+                resolve({status:true})
+            })
+
+        })
     }
 }

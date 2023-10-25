@@ -15,9 +15,8 @@ var varifyLogin = (req, res, next) => {
 }
 router.get('/', function (req, res, next) {
   let user = req.session.userloggedIn
-  console.log(user)
   if (user) {
-    res.render('playview/main-view', { playclick: false })
+    res.render('playview/main-view',{user:req.session.user})
   } else {
     res.render('userview/login');
   }
@@ -27,7 +26,7 @@ router.get('/login', (req, res) => {
   if (req.session.userloggedIn) {
     res.render('/')
   } else {
-    res.render('userview/login', { loginErr: req.session.userloginErr })
+    res.render('userview/login', { loginErr: req.session.userloginErr})
     req.session.userloginErr = false;
   }
 })
@@ -74,8 +73,8 @@ router.post('/forgotaction', (req, res) => {
 })
 
 router.get('/test', (req, res) => {
-  let user = req.session.user;
-  res.render('playview/main-view')
+  let user = req.session.userloggedIn;
+  res.render('playview/main-view',{user})
 })
 
 router.get('/logout', (req, res) => {
@@ -93,4 +92,12 @@ router.get('/logout', (req, res) => {
 //   res.render('playview/main-view', { playclick: true })
 // })
 
+router.post('/liked-response',(req,res)=>{
+  console.log("SONG LIKED"+req.body);
+  // userHelper.likedResponse(req.body).then((response)=>{
+  //   res.json(response);
+  // })
+})
+
 module.exports = router;
+

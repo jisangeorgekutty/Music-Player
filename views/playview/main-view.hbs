@@ -28,7 +28,7 @@
                     <img src="/images/1.jpg" alt="">
                     <h5>On my way <div class="subtitle">Alan Walker</div>
                     </h5>
-                    <i onclick="playClick()" class="bi playListPlay bi-play-circle-fill" id="1"> </i>
+                    <i class="bi playListPlay bi-play-circle-fill" id="1"> </i>
                 </li>
                 <li class="songItems">
                     <img src="/images/2.jpg" alt="">
@@ -349,15 +349,15 @@
         <div class="play-box">
             <img src="/images/1.jpg" class="play-image" alt="" id="play-img">
             <h5 id="play-title">
-                Blinding Ligths
-                <div class="subtitle">The Weekend</div>
+                On MY Way
+                <div class="subtitle">Alan Walker</div>
             </h5>
             <div class="play-icons">
                 <i class="bi-repeat" id="repeat"></i>
                 <i class="bi bi-skip-start-fill" id="back"></i>
                 <i class="bi bi-play-fill" id="music-play"></i>
                 <i class="bi bi-skip-end-fill" id="next"></i>
-                <i class="bi bi-suit-heart" id="heart"></i>
+                <i class="bi bi-suit-heart" id="heart" onclick="likedSong('{{this._id}}')">  </i>
             </div>
             <span id="currentStart"></span>
             <div class="play-bar">
@@ -377,5 +377,4 @@
     <script src="/javascripts/script.js"></script>
     <script src="https://kit.fontawesome.com/6b3f1ac7c4.js" crossorigin="anonymous"></script>
 </body>
-
 </html>

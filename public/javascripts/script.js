@@ -1,3 +1,4 @@
+
 const music = new Audio('/audio/1.mp3');
 // music.play();
 
@@ -94,6 +95,8 @@ input.addEventListener('keyup', () => {
 //     })
 // }
 
+
+
 Array.from(document.getElementsByClassName('songItem')).forEach((e, i) => {
     e.getElementsByTagName('img')[0].src = songs[i].image;
     e.getElementsByTagName('h5')[0].innerHTML = songs[i].songName;
@@ -127,11 +130,13 @@ masterPlay.addEventListener('click', () => {
 });
 
 let index = 0;
+let songId = 0;
 let title = document.getElementById('play-title');
 let playImage = document.getElementById('play-img');
 Array.from(document.getElementsByClassName('playListPlay')).forEach((e) => {
     e.addEventListener('click', (el) => {
         index = el.target.id;
+        songId = el.target.id;
         music.src = `/audio/${index}.mp3`;
         playImage.src = `/images/${index}.jpg`;
         music.play();
@@ -152,6 +157,9 @@ Array.from(document.getElementsByClassName('playListPlay')).forEach((e) => {
         wave.classList.add('active1');
     })
 })
+
+
+
 
 let currentStart = document.getElementById('currentStart');
 let currentEnd = document.getElementById('currentEnd');
@@ -200,8 +208,10 @@ let next = document.getElementById('next');
 
 back.addEventListener('click', () => {
     index--;
+    songId--;
     if (index < 1) {
         index = Array.from(document.getElementsByClassName('songItems')).length;
+        songId = Array.from(document.getElementsByClassName('songItems')).length;
     }
     music.src = `/audio/${index}.mp3`;
     playImage.src = `/images/${index}.jpg`;
@@ -221,13 +231,14 @@ back.addEventListener('click', () => {
     el.target.classList.add('bi-pause-circle-fill');
     el.target.classList.remove('bi-play-circle-fill');
     wave.classList.add('active1');
-
 })
 
 next.addEventListener('click', () => {
     index++;
+    songId++;
     if (index > Array.from(document.getElementsByClassName('songItems')).length) {
         index = 1;
+        songId = 1;
     }
     music.src = `/audio/${index}.mp3`;
     playImage.src = `/images/${index}.jpg`;
@@ -297,5 +308,22 @@ repeat.addEventListener('click', () => {
     el.target.classList.remove('bi-play-circle-fill');
     wave.classList.add('active1');
 })
+
+let heart = document.getElementById('heart');
+function likedSong(userId) {
+    $.ajax({
+        url: '/liked-response',
+        data: {
+            userid: userId,
+            songid: songId
+        },
+        method: 'post',
+        success: (response) => {
+            if (response.status) {
+                heart.classList.add('bi-suit-heart-fill');
+            }
+        }
+    })
+}
 
 
